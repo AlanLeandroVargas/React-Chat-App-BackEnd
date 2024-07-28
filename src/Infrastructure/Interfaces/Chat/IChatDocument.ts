@@ -1,8 +1,8 @@
 import { Document } from "mongoose";
-import IMessageDocument from "../Message/IMessageDocument";
+import Message from "../../../Domain/Entities/Message";
 interface IChatDocument extends Document
 {
     participants: Array<string>;
-    messages: Array<IMessageDocument>;
+    messages: Array<Message>;
 }
 export default IChatDocument;

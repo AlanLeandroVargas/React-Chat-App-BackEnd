@@ -5,10 +5,10 @@ import IUserDocument from '../../Interfaces/User/IUserDocument';
 const userSchema: Schema<IUserDocument> = new mongoose.Schema
 (
     {
-        username: {type: String, required: true},
+        username: {type: String, required: true, unique: true},
         name: {type: String, required: true},
         lastName: {type: String, required: true},
-        email: {type: String, required: true},
+        email: {type: String, required: true, unique: true},
         password: {type: String, required: true},
         profilePicture: {type: String, required: true},
         createdAt: {type: Date, default: Date.now}

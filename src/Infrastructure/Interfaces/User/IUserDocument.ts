@@ -8,5 +8,6 @@ interface IUserDocument extends Document
     password: string;
     profilePicture: string;    
     createdAt: Date;
+    comparePassword(password: string): Promise<boolean>;
 }
 export default IUserDocument;

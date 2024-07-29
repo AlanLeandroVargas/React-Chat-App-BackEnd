@@ -14,4 +14,6 @@ app.use('/api', UserRouter);
 app.use('/api', ChatRouter);
 app.use(errorHandler);
 
-export default app;
+const chatApp = express();
+
+export {app, chatApp};

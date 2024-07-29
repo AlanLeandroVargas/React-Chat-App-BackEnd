@@ -13,8 +13,9 @@ class ChatQuery implements IChatQuery
         if(!retrievedChat.participants.includes(getChatDTO.participantId)) throw new UnauthorizedException('No se puede acceder a un chat del que no se sea participante');
         return retrievedChat;
     }
-    async getChatsByUserId(userId: string): Promise<Array<IChatDocument>> {
-        const retrievedChats = await ChatModel.find( {participants: userId} );
+    //Should change it to usernames
+    async getChatsByUsername(username: string): Promise<Array<IChatDocument>> {
+        const retrievedChats = await ChatModel.find( {participants: username} );
         if(!retrievedChats) throw new NotFoundException('No se encontro ningun chat');
         return retrievedChats;
     }    

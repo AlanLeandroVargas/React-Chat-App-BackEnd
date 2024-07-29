@@ -18,8 +18,8 @@ class ChatServicesApplication implements IChatServicesApplication
         const retrievedChat = await this.chatServicesDomain.getChatById(getChatDTO);
         return retrievedChat;
     }
-    async getChatsByUserId(userId: string): Promise<Array<Chat>> {
-        const retrievedChats = await this.chatServicesDomain.getChatsByUserId(userId);
+    async getChatsByUsername(username: string): Promise<Array<Chat>> {
+        const retrievedChats = await this.chatServicesDomain.getChatsByUsername(username);
         return retrievedChats;
     }     
 }

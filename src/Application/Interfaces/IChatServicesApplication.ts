@@ -6,6 +6,6 @@ interface IChatServicesApplication
 {
     addMessage(messageDTO: SendMessageDTO): Promise<void>;
     getChatById(getChatDTO: GetChatByIdDTO): Promise<Chat>;
-    getChatsByUserId(userId: string): Promise<Array<Chat>>;
+    getChatsByUsername(userId: string): Promise<Array<Chat>>;
 }
 export default IChatServicesApplication;

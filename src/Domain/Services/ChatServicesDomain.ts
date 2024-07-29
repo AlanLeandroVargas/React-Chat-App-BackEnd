@@ -21,8 +21,8 @@ class ChatServicesDomain implements IChatServicesDomain
         const retrievedChat = await this.chatQuery.getChatById(getChatDTO);
         return retrievedChat;
     }
-    async getChatsByUserId(userId: string): Promise<Array<IChatDocument>> {
-        const retrievedChats = await this.chatQuery.getChatsByUserId(userId);
+    async getChatsByUsername(userId: string): Promise<Array<IChatDocument>> {
+        const retrievedChats = await this.chatQuery.getChatsByUsername(userId);
         return retrievedChats;
     }    
 }

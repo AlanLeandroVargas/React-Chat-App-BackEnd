@@ -38,12 +38,12 @@ class ChatController
             next(error);
         }
     }
-    async getChatsByUserId(req: Request, res: Response, next: NextFunction): Promise<void>
+    async getChatsByUsername(req: Request, res: Response, next: NextFunction): Promise<void>
     {
         try
         {
-            const userId = req.query.userId;
-            const retrievedChats = await this.chatServicesApplication.getChatsByUserId(userId as string);
+            const username = req.query.username;
+            const retrievedChats = await this.chatServicesApplication.getChatsByUsername(username as string);
             res.status(200).send(retrievedChats);
         }
         catch(error)

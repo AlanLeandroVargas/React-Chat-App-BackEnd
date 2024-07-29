@@ -1,4 +1,4 @@
-class GetChatById
+class GetChatByIdDTO
 {
     id: string;
     participantId: string;
@@ -8,4 +8,4 @@ class GetChatById
         this.participantId = participantId;
     }
 }
-export default GetChatById;
+export default GetChatByIdDTO;

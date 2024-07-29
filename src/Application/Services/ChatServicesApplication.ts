@@ -1,6 +1,6 @@
 import Chat from "../../Domain/Entities/Chat";
 import IChatServicesDomain from "../../Domain/Interfaces/IChatServicesDomain";
-import GetChatById from "../DTO/GetChatById";
+import GetChatByIdDTO from "../DTO/GetChatByIdDTO";
 import SendMessageDTO from "../DTO/SendMessageDTO";
 import IChatServicesApplication from "../Interfaces/IChatServicesApplication";
 
@@ -14,7 +14,7 @@ class ChatServicesApplication implements IChatServicesApplication
     async addMessage(messageDTO: SendMessageDTO): Promise<void> {
         await this.chatServicesDomain.addMessage(messageDTO);
     }
-    async getChatById(getChatDTO: GetChatById): Promise<Chat> {
+    async getChatById(getChatDTO: GetChatByIdDTO): Promise<Chat> {
         const retrievedChat = await this.chatServicesDomain.getChatById(getChatDTO);
         return retrievedChat;
     }

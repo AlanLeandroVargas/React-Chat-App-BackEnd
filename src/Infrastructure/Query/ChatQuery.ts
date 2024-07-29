@@ -1,4 +1,4 @@
-import GetChatById from "../../Application/DTO/GetChatById";
+import GetChatByIdDTO from "../../Application/DTO/GetChatByIdDTO";
 import NotFoundException from "../../Application/Exceptions/NotFoundException";
 import UnauthorizedException from "../../Application/Exceptions/UnauthorizedException";
 import IChatDocument from "../Interfaces/Chat/IChatDocument";
@@ -7,7 +7,7 @@ import ChatModel from "../Persistence/Models/ChatModel";
 
 class ChatQuery implements IChatQuery
 {
-    async getChatById(getChatDTO: GetChatById): Promise<IChatDocument> {
+    async getChatById(getChatDTO: GetChatByIdDTO): Promise<IChatDocument> {
         const retrievedChat = await ChatModel.findOne( { _id: getChatDTO.id } );        
         if(!retrievedChat) throw new NotFoundException('Chat no encontrado');
         if(!retrievedChat.participants.includes(getChatDTO.participantId)) throw new UnauthorizedException('No se puede acceder a un chat del que no se sea participante');

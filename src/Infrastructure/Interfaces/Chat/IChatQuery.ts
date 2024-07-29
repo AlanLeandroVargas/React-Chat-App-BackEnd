@@ -1,9 +1,9 @@
-import GetChatById from "../../../Application/DTO/GetChatById";
+import GetChatByIdDTO from "../../../Application/DTO/GetChatByIdDTO";
 import IChatDocument from "./IChatDocument";
 
 interface IChatQuery
 {
-    getChatById(getChatDTO: GetChatById): Promise<IChatDocument>;
+    getChatById(getChatDTO: GetChatByIdDTO): Promise<IChatDocument>;
     getChatsByUserId(userID: string): Promise<Array<IChatDocument>>;
 }
 export default IChatQuery;

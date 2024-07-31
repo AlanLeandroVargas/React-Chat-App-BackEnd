@@ -9,7 +9,11 @@ class UserController
     private readonly userServicesApplication: IUserServicesApplication;
     constructor(userServicesApplication: IUserServicesApplication)
     {
-        this.userServicesApplication = userServicesApplication
+        this.userServicesApplication = userServicesApplication;
+        this.registerUser = this.registerUser.bind(this);
+        this.login = this.login.bind(this);
+        this.changePassword = this.changePassword.bind(this);
+        this.changeProfilePicture = this.changeProfilePicture.bind(this);
     }
     async registerUser(req: Request, res: Response, next: NextFunction): Promise<void>
     {

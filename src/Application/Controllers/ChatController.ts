@@ -9,6 +9,23 @@ class ChatController
     constructor(chatServicesApplication: IChatServicesApplication)
     {
         this.chatServicesApplication = chatServicesApplication;
+        this.createChat = this.createChat.bind(this);
+        this.addMessage = this.addMessage.bind(this);
+        this.getChatById = this.getChatById.bind(this);
+        this.getChatsByUsername = this.getChatsByUsername.bind(this);
+    }
+    async createChat(req: Request, res: Response, next: NextFunction): Promise<void>
+    {
+        try
+        {
+            const { participants } = req.body;
+            const chatId = await this.chatServicesApplication.createChat(participants);
+            res.status(201).send(chatId);
+        }
+        catch(error)
+        {
+            next(error);
+        }
     }
     async addMessage(req: Request, res: Response, next: NextFunction): Promise<void>
     {

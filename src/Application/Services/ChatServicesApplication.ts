@@ -11,6 +11,10 @@ class ChatServicesApplication implements IChatServicesApplication
     {
         this.chatServicesDomain = chatServicesDomain;
     }
+    async createChat(participants: Array<string>): Promise<string> {
+        const createdChat = await this.chatServicesDomain.createChat(participants);
+        return createdChat.id;
+    }
     async addMessage(messageDTO: SendMessageDTO): Promise<void> {
         await this.chatServicesDomain.addMessage(messageDTO);
     }

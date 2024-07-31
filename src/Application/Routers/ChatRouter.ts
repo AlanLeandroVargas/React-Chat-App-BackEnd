@@ -15,6 +15,7 @@ const chatServicesDomain = new ChatServicesDomain(chatQuery, chatCommand);
 const chatServicesApplication = new ChatServicesApplication(chatServicesDomain);
 const chatController = new ChatController(chatServicesApplication);
 
+ChatRouter.post('/chats/create', chatController.createChat);
 ChatRouter.post('/chats/send-message', chatController.addMessage);
 ChatRouter.get('/chats/get-chat', chatController.getChatById);
 ChatRouter.get('/chats/get-chats', chatController.getChatsByUsername);

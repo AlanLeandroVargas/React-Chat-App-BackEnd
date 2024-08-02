@@ -20,12 +20,8 @@ ChatRouter.post('/chats/send-message', chatController.addMessage);
 ChatRouter.get('/chats/get-chat', chatController.getChatById);
 ChatRouter.get('/chats/get-chats', chatController.getChatsByUsername);
 
-const socketChatServicesDomain = new SocketChatServicesDomain(chatServicesDomain);
-const socketChatController = new SocketChatController(socketChatServicesDomain);
-
-io.on('connect', (socket) => 
-    {
-        socketChatController.setupSocket(socket);
-    });
-
-export default ChatRouter;
+export 
+{
+    ChatRouter,
+    chatServicesDomain
+};

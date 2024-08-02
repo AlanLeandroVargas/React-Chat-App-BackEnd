@@ -1,12 +1,11 @@
 import mongoose, { Schema } from "mongoose";
 import IChatDocument from "../../Interfaces/Chat/IChatDocument";
-import Message from "../../../Domain/Entities/Message";
 
 const chatSchema: Schema<IChatDocument> = new mongoose.Schema
 (    
     {
         participants: {type: [String], required: true},
-        messages: {type: [Message]}
+        messages: {type: [Object]}
     }
 );
 
